@@ -1,25 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Danish Khan Apps - Premium mobile apps for growth, productivity and everyday life.">
-<title>Danish Khan Apps</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#000;color:#fff;line-height:1.5}a{text-decoration:none;color:inherit}.wrap{max-width:1200px;margin:auto;padding:0 24px}.muted{color:rgba(255,255,255,.65)}header{position:sticky;top:0;background:rgba(0,0,0,.8);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);z-index:10}.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}.navlinks a{margin-left:20px;color:rgba(255,255,255,.75)}.hero{padding:90px 0;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}.tag{color:#ff4d57;font-weight:700;margin-bottom:14px}.hero h1{font-size:58px;line-height:1.05}.hero p{font-size:20px;margin-top:18px;color:rgba(255,255,255,.7)}.btns{display:flex;gap:14px;margin-top:28px}.btn{padding:14px 22px;border-radius:16px;font-weight:700}.primary{background:#fff;color:#000}.secondary{border:1px solid rgba(255,255,255,.15)}.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:28px}.feature{min-height:360px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(255,77,87,.28),rgba(255,255,255,.03));border-radius:24px;text-align:center}.emoji{font-size:72px}.apps{padding:20px 0 90px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:24px}.app{padding:24px;border-radius:26px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}.icon{width:64px;height:64px;border-radius:18px;background:#fff;color:#000;display:flex;align-items:center;justify-content:center;font-weight:800}.slot{min-height:260px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(255,255,255,.12);border-radius:26px;color:rgba(255,255,255,.35)}section.band{border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);padding:70px 0}section.contact{padding:70px 0}footer{border-top:1px solid rgba(255,255,255,.08);padding:26px 0;color:rgba(255,255,255,.45);font-size:14px}.smallbtn{display:inline-block;margin-top:16px;padding:10px 14px;border-radius:14px;background:#fff;color:#000;font-weight:700}.red{color:#ff4d57}@media(max-width:900px){.hero,.grid{grid-template-columns:1fr}.hero h1{font-size:42px}.nav{flex-direction:column;gap:14px}.navlinks a{margin:0 10px}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Danish Khan Apps - Premium mobile apps for growth, productivity and everyday life.">
+    <title>Danish Khan Apps</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 24px;
+        }
+
+        .muted { color: rgba(255,255,255,.65); }
+        .red { color: #ff4d57; }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(0,0,0,.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .navlinks a {
+            margin-left: 20px;
+            color: rgba(255,255,255,.75);
+        }
+
+        .hero {
+            padding: 90px 0;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .tag {
+            color: #ff4d57;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.05;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-top: 18px;
+            color: rgba(255,255,255,.7);
+        }
+
+        .btns {
+            display: flex;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .btn,
+        .smallbtn {
+            font-weight: 700;
+            border-radius: 16px;
+            display: inline-block;
+        }
+
+        .btn {
+            padding: 14px 22px;
+        }
+
+        .smallbtn {
+            padding: 10px 14px;
+            margin-top: 16px;
+            background: #fff;
+            color: #000;
+        }
+
+        .primary {
+            background: #fff;
+            color: #000;
+        }
+
+        .secondary {
+            border: 1px solid rgba(255,255,255,.15);
+        }
+
+        .card,
+        .app {
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
+        }
+
+        .card {
+            border-radius: 28px;
+            padding: 28px;
+        }
+
+        .feature {
+            min-height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(255,77,87,.28), rgba(255,255,255,.03));
+        }
+
+        .apps {
+            padding: 20px 0 90px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 24px;
+        }
+
+        .app,
+        .slot {
+            border-radius: 26px;
+            padding: 24px;
+        }
+
+        .icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            object-fit: cover;
+        }
+
+        .slot {
+            min-height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255,255,255,.12);
+            color: rgba(255,255,255,.35);
+        }
+
+        section.band {
+            padding: 70px 0;
+            background: rgba(255,255,255,.03);
+            border-top: 1px solid rgba(255,255,255,.08);
+            border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+
+        section.contact {
+            padding: 70px 0;
+        }
+
+        footer {
+            padding: 26px 0;
+            font-size: 14px;
+            color: rgba(255,255,255,.45);
+            border-top: 1px solid rgba(255,255,255,.08);
+        }
+
+        @media (max-width: 900px) {
+            .hero,
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .navlinks a {
+                margin: 0 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-<header><div class="wrap nav"><div><h2>Danish Khan Apps</h2><div class="muted">Minimal tools for growth & focus</div></div><nav class="navlinks"><a href="#apps">Apps</a><a href="#about">About</a><a href="#contact">Contact</a></nav></div></header>
-<main>
-<section class="wrap hero">
-<div><div class="tag">Independent App Studio</div><h1>Apps that improve daily life.</h1><p>Building a growing portfolio of thoughtful mobile apps. Starting with Stoic Reflection, with many more to come.</p><div class="btns"><a class="btn primary" href="#apps">Explore Apps</a><a class="btn secondary" href="#contact">Contact</a></div></div>
-<div class="card"><div class="feature"><div><img src="AppIcon/Stoiczappicon.png" alt="Stoic Reflection App Icon" style="width:96px;height:96px;border-radius:24px;object-fit:cover;box-shadow:0 10px 30px rgba(0,0,0,.35)"><h2>Stoic Reflection</h2><p class="muted">365 Days of Wisdom & Reflection</p></div></div></div>
-</section>
-<section id="apps" class="wrap apps"><h2>Our Apps</h2><p class="muted">More products will be added here over time.</p><div class="grid"><div class="app"><img class="icon" src="AppIcon/Stoiczappicon.png" alt="Stoic Reflection Icon" style="object-fit:cover;padding:0;background:none"><h3 style="margin-top:16px">Stoic Reflection</h3><p class="muted" style="margin-top:10px">Daily Stoic quotes, journaling, streaks, analytics and a 365-day challenge.</p><a class="smallbtn" href="https://apps.apple.com/app/stoic-reflection/id6763933364" target="_blank" rel="noopener noreferrer">App Store</a></div><div class="slot">Future App Slot</div><div class="slot">Future App Slot</div></div></section>
-<section id="about" class="band"><div class="wrap"><h2>About</h2><p class="muted" style="margin-top:14px;max-width:760px">I build clean, useful apps focused on self-improvement, productivity, education, and everyday utility. The mission is to launch many small but meaningful products.</p></div></section>
-<section id="contact" class="wrap contact"><h2>Contact</h2><p class="muted" style="margin-top:14px">For support, partnerships, or feedback:</p><p style="margin-top:12px"><a class="red" href="mailto:danishk7809@gmail.com">danishk7809@gmail.com</a></p></section>
-</main>
-<footer><div class="wrap">© 2026 Danish Khan Apps. All rights reserved.</div></footer>
+    <header>
+        <div class="wrap nav">
+            <div>
+                <h2>Danish Khan Apps</h2>
+                <div class="muted">Minimal tools for growth & focus</div>
+            </div>
+
+            <nav class="navlinks">
+                <a href="#apps">Apps</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="wrap hero">
+            <div>
+                <div class="tag">Independent App Studio</div>
+                <h1>Apps that improve daily life.</h1>
+                <p>
+                    Building a growing portfolio of thoughtful mobile apps.
+                    Starting with Stoic Reflection, with many more to come.
+                </p>
+
+                <div class="btns">
+                    <a class="btn primary" href="#apps">Explore Apps</a>
+                    <a class="btn secondary" href="#contact">Contact</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="feature">
+                    <div>
+                        <img
+                            src="AppIcon/Stoiczappicon.png"
+                            alt="Stoic Reflection App Icon"
+                            style="width:96px;height:96px;border-radius:24px;box-shadow:0 10px 30px rgba(0,0,0,.35);"
+                        >
+                        <h2>Stoic Reflection</h2>
+                        <p class="muted">365 Days of Wisdom & Reflection</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="apps" class="wrap apps">
+            <h2>Our Apps</h2>
+            <p class="muted">More products will be added here over time.</p>
+
+            <div class="grid">
+                <div class="app">
+                    <img
+                        class="icon"
+                        src="AppIcon/Stoiczappicon.png"
+                        alt="Stoic Reflection Icon"
+                    >
+
+                    <h3 style="margin-top:16px;">Stoic Reflection</h3>
+                    <p class="muted" style="margin-top:10px;">
+                        Daily Stoic quotes, journaling, streaks, analytics and a 365-day challenge.
+                    </p>
+
+                    <a
+                        class="smallbtn"
+                        href="https://apps.apple.com/app/stoic-reflection/id6763933364"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        App Store
+                    </a>
+                </div>
+
+                <div class="slot">Future App Slot</div>
+                <div class="slot">Future App Slot</div>
+            </div>
+        </section>
+
+        <section id="about" class="band">
+            <div class="wrap">
+                <h2>About</h2>
+                <p class="muted" style="margin-top:14px; max-width:760px;">
+                    I build clean, useful apps focused on self-improvement,
+                    productivity, education, and everyday utility.
+                    The mission is to launch many small but meaningful products.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact" class="wrap contact">
+            <h2>Contact</h2>
+            <p class="muted" style="margin-top:14px;">
+                For support, partnerships, or feedback:
+            </p>
+
+            <p style="margin-top:12px;">
+                <a class="red" href="mailto:danishk7809@gmail.com">
+                    danishk7809@gmail.com
+                </a>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">© 2026 Danish Khan Apps. All rights reserved.</div>
+    </footer>
 </body>
 </html>
