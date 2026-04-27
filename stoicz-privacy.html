@@ -1,48 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | Stoic Reflection</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background-color: #09090B; color: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        .content { max-width: 700px; margin: 0 auto; padding: 4rem 1.5rem; }
-        h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 2rem; }
-        h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: #FAFAFA; }
-        p, li { color: #A1A1AA; line-height: 1.75; margin-bottom: 1rem; }
-        a { color: #FFFFFF; text-decoration: underline; }
-        .footer { border-top: 1px solid #27272A; margin-top: 4rem; padding-top: 2rem; color: #71717A; }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy | Stoic Reflection</title>
+
+<style>
+:root{
+    --bg:#0b0b0d;
+    --card:#151518;
+    --text:#f5f5f7;
+    --muted:#a1a1aa;
+    --accent:#ff4d57;
+    --line:#26262b;
+    --green:#22c55e;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:linear-gradient(180deg,#050505 0%, #0b0b0d 100%);
+    color:var(--text);
+    line-height:1.7;
+    padding:40px 20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border:1px solid rgba(255,77,87,.25);
+    background:rgba(255,77,87,.08);
+    color:var(--accent);
+    border-radius:999px;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.5px;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:clamp(2.4rem,6vw,4rem);
+    font-weight:800;
+    letter-spacing:-1px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:var(--muted);
+    font-size:1.1rem;
+}
+
+.card{
+    background:rgba(21,21,24,.92);
+    border:1px solid var(--line);
+    border-radius:28px;
+    padding:35px;
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+    backdrop-filter: blur(8px);
+}
+
+section{
+    margin-bottom:34px;
+}
+
+section:last-child{
+    margin-bottom:0;
+}
+
+h2{
+    font-size:1.3rem;
+    margin-bottom:14px;
+    color:#ffffff;
+}
+
+p{
+    color:#dddddf;
+    margin-bottom:12px;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+    color:#dddddf;
+}
+
+a{
+    color:var(--green);
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+.footer{
+    text-align:center;
+    color:var(--muted);
+    margin-top:28px;
+    font-size:.95rem;
+}
+
+hr{
+    border:none;
+    height:1px;
+    background:var(--line);
+    margin:28px 0;
+}
+
+.contact{
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:18px;
+}
+
+@media (max-width:768px){
+    .card{
+        padding:24px;
+        border-radius:22px;
+    }
+
+    body{
+        padding:20px 14px;
+    }
+}
+</style>
 </head>
+
 <body>
-    <div class="content">
+
+<div class="container">
+
+    <div class="hero">
+        <div class="badge">STOIC REFLECTION</div>
         <h1>Privacy Policy</h1>
-        <p><strong>Effective Date:</strong> April 27, 2026</p>
-        
-        <p>Stoic Reflection (“we,” “our,” or “us”) respects your privacy. This Privacy Policy explains how information is handled when you use the Stoic Reflection mobile application (“App”).</p>
-
-        <h2>Information We Collect</h2>
-        <p>Stoic Reflection does not directly collect, store, or share any personal information from users. The app does not require account creation and does not collect data such as Name, Email, Contacts, or personal reflections.</p>
-
-        <h2>Local Device Storage</h2>
-        <p>Some app data such as progress, streaks, and settings are stored locally on your device. This data is not transmitted to our servers.</p>
-
-        <h2>Third-Party Advertising (Google AdMob)</h2>
-        <p>Stoic Reflection displays advertisements served by Google AdMob. AdMob may process data to provide ads and measure performance. For more information, please review:</p>
-        <ul>
-            <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
-            <li><a href="https://support.google.com/admob/" target="_blank">AdMob Help Center</a></li>
-        </ul>
-
-        <h2>Your Choices</h2>
-        <p>You may control advertising preferences through your device settings by resetting your advertising ID or limiting ad tracking.</p>
-
-        <h2>Contact</h2>
-        <div class="footer">
-            <p><strong>Danish Khan</strong></p>
-            <p>Email: <a href="mailto:danishk7809@gmail.com">danishk7809@gmail.com</a></p>
-        </div>
+        <p class="subtitle">Effective Date: April 27, 2026</p>
     </div>
+
+    <div class="card">
+
+        <section>
+            <p>
+                Stoic Reflection (“we,” “our,” or “us”) respects your privacy.
+                This Privacy Policy explains how information is handled when you use the
+                Stoic Reflection mobile application (“App”).
+            </p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>1. Information We Collect</h2>
+            <p>
+                Stoic Reflection does <strong>not</strong> directly collect, store, or share personal information from users.
+            </p>
+            <ul>
+                <li>Name</li>
+                <li>Email address</li>
+                <li>Phone number</li>
+                <li>Precise location</li>
+                <li>Contacts</li>
+                <li>Photos</li>
+                <li>Messages</li>
+                <li>Journal reflections (unless stored locally on your device)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. Local Device Storage</h2>
+            <p>
+                Some app data such as streaks, reminders, progress, settings,
+                and reflections may be stored locally on your device to provide app functionality.
+                This data is not transmitted to us.
+            </p>
+        </section>
+
+        <section>
+            <h2>3. Third-Party Advertising (Google AdMob)</h2>
+            <p>
+                Stoic Reflection may display advertisements served by Google AdMob.
+                AdMob may collect and process certain data to provide personalized or
+                non-personalized ads, measure performance, and prevent fraud.
+            </p>
+
+            <ul>
+                <li>Device identifiers</li>
+                <li>Approximate location</li>
+                <li>Advertising data</li>
+                <li>Usage data</li>
+            </ul>
+
+            <p>
+                Learn more:
+            </p>
+
+            <p>
+                <a href="https://policies.google.com/privacy" target="_blank">
+                    Google Privacy Policy
+                </a>
+                <br>
+                <a href="https://support.google.com/admob/" target="_blank">
+                    Google AdMob Policy
+                </a>
+            </p>
+        </section>
+
+        <section>
+            <h2>4. Data Security</h2>
+            <p>
+                Since Stoic Reflection does not directly collect personal data,
+                we do not maintain external databases of user personal information.
+                Any data stored locally on your device is protected by your device's own security settings.
+            </p>
+        </section>
+
+        <section>
+            <h2>5. Children's Privacy</h2>
+            <p>
+                Stoic Reflection is not specifically directed to children under 13.
+                If required by law, ads shown through AdMob may be subject to age-related protections.
+            </p>
+        </section>
+
+        <section>
+            <h2>6. Your Choices</h2>
+            <ul>
+                <li>Reset advertising ID</li>
+                <li>Limit ad tracking (where available)</li>
+                <li>Manage consent settings in supported regions</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>7. Changes to This Policy</h2>
+            <p>
+                We may update this Privacy Policy from time to time.
+                Updates will be posted within the app or on the app listing page.
+            </p>
+        </section>
+
+        <section>
+            <h2>8. Contact</h2>
+
+            <div class="contact">
+                <strong>Danish Khan</strong><br>
+                Email:
+                <a href="mailto:danishk7809@gmail.com">
+                    danishk7809@gmail.com
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="footer">
+        © 2026 Stoic Reflection. All rights reserved.
+    </div>
+
+</div>
+
 </body>
 </html>
