@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Stoic Reflection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #09090B; color: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        .content { max-width: 700px; margin: 0 auto; padding: 4rem 1.5rem; }
+        h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 2rem; }
+        h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: #FAFAFA; }
+        p, li { color: #A1A1AA; line-height: 1.75; margin-bottom: 1rem; }
+        a { color: #FFFFFF; text-decoration: underline; }
+        .footer { border-top: 1px solid #27272A; margin-top: 4rem; padding-top: 2rem; color: #71717A; }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Privacy Policy</h1>
+        <p><strong>Effective Date:</strong> April 27, 2026</p>
+        
+        <p>Stoic Reflection (“we,” “our,” or “us”) respects your privacy. This Privacy Policy explains how information is handled when you use the Stoic Reflection mobile application (“App”).</p>
+
+        <h2>Information We Collect</h2>
+        <p>Stoic Reflection does not directly collect, store, or share any personal information from users. The app does not require account creation and does not collect data such as Name, Email, Contacts, or personal reflections.</p>
+
+        <h2>Local Device Storage</h2>
+        <p>Some app data such as progress, streaks, and settings are stored locally on your device. This data is not transmitted to our servers.</p>
+
+        <h2>Third-Party Advertising (Google AdMob)</h2>
+        <p>Stoic Reflection displays advertisements served by Google AdMob. AdMob may process data to provide ads and measure performance. For more information, please review:</p>
+        <ul>
+            <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+            <li><a href="https://support.google.com/admob/" target="_blank">AdMob Help Center</a></li>
+        </ul>
+
+        <h2>Your Choices</h2>
+        <p>You may control advertising preferences through your device settings by resetting your advertising ID or limiting ad tracking.</p>
+
+        <h2>Contact</h2>
+        <div class="footer">
+            <p><strong>Danish Khan</strong></p>
+            <p>Email: <a href="mailto:danishk7809@gmail.com">danishk7809@gmail.com</a></p>
+        </div>
+    </div>
+</body>
+</html>
