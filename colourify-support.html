@@ -1,1 +1,425 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colourify — Support</title>
+    <style>
+        :root {
+            --canvas: #0C0C0E;
+            --surface: #141416;
+            --border: #242428;
+            --text-primary: #F0EEE9;
+            --text-secondary: #6B6B72;
+            --text-tertiary: #383840;
+            --accent: #FF7A59;
+            --accent-dim: rgba(255, 122, 89, 0.18);
+            --accent-glow: rgba(255, 122, 89, 0.35);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--canvas);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 48px 0 32px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            background: var(--accent-dim);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: var(--accent);
+            box-shadow: 0 0 24px var(--accent-glow);
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        header .tagline {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(12, 12, 14, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 10;
+        }
+
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.18s ease;
+        }
+
+        .nav a:hover, .nav a.active {
+            color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        p, li {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            background: var(--surface);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 16px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 18px;
+            color: var(--accent);
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 20px 16px;
+        }
+
+        .faq-answer p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 480px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.18s ease;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-dim);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-info {
+            min-width: 0;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        footer {
+            padding: 32px 0 48px;
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 13px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (max-width: 480px) {
+            header h1 { font-size: 26px; }
+            .nav { gap: 4px; }
+            .nav a { padding: 6px 12px; font-size: 12px; }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="app-icon">🎨</div>
+            <h1>Colourify</h1>
+            <p class="tagline">Tap to fill, colour & relax</p>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <a href="#faq" class="active">FAQ</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main class="container">
+
+        <!-- FAQ -->
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item active">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    How do I colour a template?
+                </div>
+                <div class="faq-answer">
+                    <p>Pick a colour from the wheel at the bottom of the screen, then tap any region of the artwork to fill it. Each fill animates in instantly.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Can I undo a fill?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. Use the undo and redo arrows in the toolbar above the palette to step backward or forward through your recent fills.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Does my progress save automatically?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. Colourify saves your progress on your device after every fill, so you can close the app and pick up exactly where you left off.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Do I have to fill every region?
+                </div>
+                <div class="faq-answer">
+                    <p>No. You're free to leave any region white or unfilled if that's the look you want — tap the checkmark in the toolbar when you consider a piece finished.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    How do I save or share my finished artwork?
+                </div>
+                <div class="faq-answer">
+                    <p>Tap the save icon in the toolbar. You'll be asked for permission to add the image to your Photos library, after which you can also share it directly from the share sheet.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    What are colouring packs?
+                </div>
+                <div class="faq-answer">
+                    <p>Packs are bundles of additional colouring templates. Some packs are free, and others can be unlocked with a one-time in-app purchase from the More Packs tab.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    I reinstalled the app — can I get my purchased packs back?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. Purchased packs are tied to your Apple ID. Look for a "Restore Purchases" option in the More Packs tab and sign in with the same Apple ID used for the original purchase.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Does Colourify work offline?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, Colourify works fully offline. No account or internet connection is required to colour, save progress, or view your artwork.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy summary + link -->
+        <section id="privacy">
+            <h2>Privacy</h2>
+            <p>Colourify doesn't require an account and doesn't collect personal information. Your colouring progress is stored locally on your device. Saving artwork uses Photos "Add Only" access, used only to save the image you create.</p>
+            <p>For full details, read our <a href="privacy.html" style="color: var(--accent);">Privacy Policy</a>.</p>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <p style="margin-bottom: 20px;">Need help or have feedback? Reach out — we read every message.</p>
+
+            <div class="contact-grid">
+                <a href="mailto:danishk7809@gmail.com" class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-info">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">danishk7809@gmail.com</div>
+                    </div>
+                </a>
+
+                <div class="contact-item" style="cursor: default;">
+                    <div class="contact-icon">👤</div>
+                    <div class="contact-info">
+                        <div class="contact-label">Developer</div>
+                        <div class="contact-value">Danish Khan</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Danish Khan. All rights reserved.</p>
+            <p style="margin-top: 6px;">Colourify is built for calm, satisfying colouring — anytime, anywhere.</p>
+        </div>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body></html>
