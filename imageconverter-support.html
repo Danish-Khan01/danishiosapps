@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Extension Converter — Support</title>
+    <style>
+        :root {
+            --canvas: #0C0C0E;
+            --surface: #141416;
+            --border: #242428;
+            --text-primary: #F0EEE9;
+            --text-secondary: #6B6B72;
+            --text-tertiary: #383840;
+            --accent: #7B61FF;
+            --accent-dim: rgba(123, 97, 255, 0.18);
+            --accent-glow: rgba(123, 97, 255, 0.35);
+            --accent-green: #34D399;
+            --accent-amber: #FBBF24;
+            --accent-red: #F87171;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--canvas);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 48px 0 32px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            background: var(--accent-dim);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: var(--accent);
+            box-shadow: 0 0 24px var(--accent-glow);
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        header .tagline {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* Nav */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(12, 12, 14, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 10;
+        }
+
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.18s ease;
+        }
+
+        .nav a:hover, .nav a.active {
+            color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        /* Sections */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 24px 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 11px;
+        }
+
+        p, li {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Format grid */
+        .format-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 16px 0 8px;
+        }
+
+        @media (max-width: 480px) {
+            .format-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .format-chip {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 8px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 480px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.18s ease;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-dim);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-info {
+            min-width: 0;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .contact-value {
+            font-size: 14px;
+            color: var(--text-primary);
+            font-weight: 500;
+            word-break: break-word;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 16px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 18px;
+            color: var(--accent);
+            font-weight: 300;
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 20px 16px;
+        }
+
+        .faq-answer p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 32px 0 48px;
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 13px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            header h1 { font-size: 26px; }
+            .nav { gap: 4px; }
+            .nav a { padding: 6px 12px; font-size: 12px; }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="app-icon">⇄</div>
+            <h1>Image Extension Converter</h1>
+            <p class="tagline">Convert JPG, PNG, HEIC, WebP & more — single or batch, entirely on your device</p>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <a href="#faq" class="active">FAQ</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main class="container">
+
+        <!-- FAQ -->
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+
+            <h3>Supported Formats</h3>
+            <div class="format-grid">
+                <div class="format-chip">JPEG</div>
+                <div class="format-chip">PNG</div>
+                <div class="format-chip">HEIC</div>
+                <div class="format-chip">WebP</div>
+                <div class="format-chip">TIFF</div>
+                <div class="format-chip">BMP</div>
+                <div class="format-chip">GIF</div>
+                <div class="format-chip">ICO</div>
+            </div>
+
+            <div class="faq-item active">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    How do I convert a single photo?
+                </div>
+                <div class="faq-answer">
+                    <p>Open the Single tab, tap to choose a photo from your library, select the format you want to convert to, adjust quality if the format supports it, then tap Convert. Once it's done, save it to Photos, save it to Files, or share it directly.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    How does batch conversion work?
+                </div>
+                <div class="faq-answer">
+                    <p>Open the Batch tab and select multiple photos at once. Choose one output format for the whole batch, tap Convert All, and track progress for each image individually. When everything's done, save the whole batch to Photos or Files in one go.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Why did my file size increase after converting to PNG or TIFF?
+                </div>
+                <div class="faq-answer">
+                    <p>JPEG and HEIC compress photos in a lossy way, discarding detail to keep file sizes small. PNG and TIFF are lossless, so converting from a lossy format to one of these restores all that detail — which is why the file can end up noticeably larger. This is expected behavior, not a bug.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Where do my converted photos go?
+                </div>
+                <div class="faq-answer">
+                    <p>After converting, you can save directly to your Photos library, export to the Files app or iCloud Drive, or share to any other app via the share sheet. Your last 20 conversions are also kept in the Recent tab so you can save or share them again without redoing the conversion.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    What does "Keep metadata" do?
+                </div>
+                <div class="faq-answer">
+                    <p>Photos often contain metadata like the date taken, camera details, and sometimes GPS location. Turning this toggle off strips that information from the converted file — useful if you're sharing a photo publicly and don't want location data attached.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Does the app upload my photos anywhere?
+                </div>
+                <div class="faq-answer">
+                    <p>No. Every conversion happens entirely on your device. Your photos are never uploaded to a server, and no account or sign-up is required to use the app.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    What does Remove Ads include?
+                </div>
+                <div class="faq-answer">
+                    <p>Remove Ads is a one-time purchase that permanently turns off the interstitial ads shown after converting or saving. It's not a subscription — pay once, and ads are gone for good. All conversion features are fully available for free either way.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Can I restore my purchase on a new device?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. In Settings, tap "Restore Purchases" and sign in with the same Apple ID used for the original purchase.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy Policy -->
+        <section id="privacy">
+            <h2>Privacy Policy</h2>
+            <p style="color: var(--text-tertiary); font-size: 13px; margin-bottom: 24px;">Effective Date: July 31, 2026</p>
+
+            <p>This Privacy Policy explains how Danish Khan operates the Image Extension Converter iOS application ("App") and how information may be handled when you use it.</p>
+
+            <h3>1. Information We Collect</h3>
+            <p>Image Extension Converter does not require account creation and does not directly collect personal information such as your name, email address, phone number, or passwords through the App.</p>
+            <p>The App accesses photos you explicitly choose from your photo library in order to convert them. Conversion happens entirely on your device.</p>
+
+            <h3>2. Local Device Storage</h3>
+            <p>Your recent conversions, app settings, and preferences are saved locally on your iPhone or iPad to provide core app functionality, such as letting you re-save or re-share a recently converted file.</p>
+            <p>This data is under your device's control and may be removed by deleting the App.</p>
+
+            <h3>3. Third-Party Services</h3>
+            <p>The App uses third-party services that may collect limited information automatically:</p>
+            <ul>
+                <li><strong>Google AdMob</strong> — used to display interstitial ads. AdMob may collect device identifiers and usage data to serve and measure ads, in accordance with Google's privacy policy.</li>
+                <li><strong>Apple StoreKit</strong> — used to process the "Remove Ads" in-app purchase. Apple processes payment data in accordance with their policies.</li>
+                <li><strong>Apple Analytics</strong> — Apple may provide aggregated analytics, diagnostics, or crash information to help improve app performance.</li>
+            </ul>
+            <p>Please review the privacy policies of these providers for more details.</p>
+
+            <h3>4. How Information Is Used</h3>
+            <ul>
+                <li>Convert images between formats, entirely on your device</li>
+                <li>Save your recent conversions locally for quick access</li>
+                <li>Display ads (unless Remove Ads has been purchased) and process that purchase through Apple StoreKit</li>
+                <li>Improve stability, reliability, and performance</li>
+            </ul>
+
+            <h3>5. Data Sharing</h3>
+            <p>We do not sell your personal data. Your photos are never uploaded to our servers — all conversion happens locally on your device. Third-party providers listed above may process limited technical data as described.</p>
+
+            <h3>6. Children's Privacy</h3>
+            <p>The App is intended for a general audience and is not specifically directed to children under 13. If you believe a child has submitted personal data through a third-party service, please contact the relevant provider.</p>
+
+            <h3>7. Security</h3>
+            <p>We aim to use reasonable measures to protect the App experience. However, no storage or transmission method is completely secure.</p>
+
+            <h3>8. Your Choices</h3>
+            <ul>
+                <li>You may delete locally stored app data, including recent conversions, by removing the App from your device.</li>
+                <li>You may manage photo library access and other permissions in your iOS Settings.</li>
+            </ul>
+
+            <h3>9. Changes to This Policy</h3>
+            <p>This Privacy Policy may be updated from time to time. Changes become effective when the updated version is posted.</p>
+
+            <h3>10. Contact</h3>
+            <p>For questions about this Privacy Policy, please contact:</p>
+            <p style="margin-top: 8px;"><strong>Danish Khan</strong><br>Email: <a href="mailto:danishk7809@gmail.com" style="color: var(--accent); text-decoration: none;">danishk7809@gmail.com</a></p>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <p style="margin-bottom: 20px;">Need help or have feedback? Reach out — we read every message.</p>
+
+            <div class="contact-grid">
+                <a href="mailto:danishk7809@gmail.com" class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-info">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">danishk7809@gmail.com</div>
+                    </div>
+                </a>
+
+                <div class="contact-item" style="cursor: default;">
+                    <div class="contact-icon">👤</div>
+                    <div class="contact-info">
+                        <div class="contact-label">Developer</div>
+                        <div class="contact-value">Danish Khan</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Danish Khan. All rights reserved.</p>
+            <p style="margin-top: 6px;">Image Extension Converter — convert any photo, any format, right on your device.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
