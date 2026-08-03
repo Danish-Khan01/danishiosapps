@@ -3,94 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stoic Reflection Support</title>
+<title>Support — Stoic Reflection</title>
 <style>
-body{
-    margin:0;
-    padding:0;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    background:#0f0f10;
-    color:#ffffff;
-    line-height:1.6;
-}
-.container{
-    max-width:800px;
-    margin:auto;
-    padding:40px 20px;
-}
-h1{
-    font-size:38px;
-    margin-bottom:10px;
-}
-h2{
-    margin-top:35px;
-    font-size:24px;
-}
-p{
-    color:#d0d0d0;
-}
-.card{
-    background:#1b1b1d;
-    padding:24px;
-    border-radius:18px;
-    margin-top:20px;
-}
-a{
-    color:#ff4d57;
-    text-decoration:none;
-}
-.footer{
-    margin-top:50px;
-    font-size:14px;
-    color:#888;
-}
+  :root {
+    --ink: #111111;
+    --secondary: #6e6e73;
+    --border: #ececec;
+    --accent: #007AFF;
+    --accent-soft: #eaf3ff;
+    --bg: #fefefe;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 4px;
+    letter-spacing: -0.02em;
+  }
+  .subtitle {
+    color: var(--secondary);
+    font-size: 15.5px;
+    margin-bottom: 32px;
+  }
+  .contact-card {
+    background: var(--accent-soft);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 24px 0 40px;
+  }
+  .contact-card h2 {
+    margin: 0 0 6px;
+    font-size: 18px;
+  }
+  .contact-card p {
+    margin: 0 0 14px;
+    color: #333;
+    font-size: 15px;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14.5px;
+    text-decoration: none;
+  }
+  h2.section {
+    font-size: 19px;
+    font-weight: 700;
+    margin: 40px 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .faq {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    background: #ffffff;
+  }
+  .faq h3 {
+    margin: 0 0 6px;
+    font-size: 15.5px;
+    font-weight: 700;
+  }
+  .faq p {
+    margin: 0;
+    font-size: 14.5px;
+    color: #444;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--secondary);
+    font-size: 13px;
+  }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<div class="container">
+  <h1>Support</h1>
+  <div class="subtitle">Help with Stoic Reflection — your daily stoic wisdom and reflection journal.</div>
 
-<h1>Stoic Reflection Support</h1>
-<p>Thank you for using Stoic Reflection. We’re here to help you on your journey toward discipline, clarity, and personal growth.</p>
+  <div class="contact-card">
+    <h2>Need help?</h2>
+    <p>Email us and we'll get back to you as soon as we can.</p>
+    <a class="btn" href="mailto:danishk7809@gmail.com">danishk7809@gmail.com</a>
+  </div>
 
-<div class="card">
-<h2>Contact Support</h2>
-<p>If you need help, found a bug, or have suggestions, contact us anytime:</p>
-<p><a href="mailto:danishk7809@gmail.com">danishk7809@gmail.com</a></p>
+  <h2 class="section">Frequently asked questions</h2>
+
+  <div class="faq">
+    <h3>How does the streak and rank system work?</h3>
+    <p>Completing a reflection on consecutive days builds your streak. As your streak grows, you move up through ranks — from Novice all the way to Stoic Sage over the full 365-day journey. Missing a day resets your current streak, but your completed days and past reflections are always saved.</p>
+  </div>
+
+  <div class="faq">
+    <h3>What does "Complete without writing" or "Watch an ad to complete" mean?</h3>
+    <p>If you don't have time to write, you can still mark a day complete by watching a short rewarded ad instead. Lifetime users can complete a day without writing at no cost, since ads are already removed for them.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Why am I seeing ads?</h3>
+    <p>Stoic Reflection is free to use, supported by ads. Ad frequency is light for your first week, and increases gradually afterward if you haven't upgraded. A one-time lifetime purchase removes all ads permanently.</p>
+  </div>
+
+  <div class="faq">
+    <h3>I purchased lifetime access but I'm still seeing ads or locked features.</h3>
+    <p>Open <strong>Settings → Restore Purchases</strong> in the app. This re-syncs your purchase with your Apple ID and should unlock everything immediately. If it still doesn't work, make sure you're signed into the same Apple ID used for the original purchase, then contact us.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Can I change the app's colors, fonts, or the home screen widget?</h3>
+    <p>Yes — accent colors and custom fonts/colors for quotes and reflections are available in Settings. Custom accent colors, fonts, and colors, as well as the home screen widget, are part of lifetime access. Free users can use the default Apple Blue theme.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Does the widget update automatically?</h3>
+    <p>Yes — it refreshes with your latest streak and the day's quote, and follows your in-app Dark Mode setting. If it looks out of date, try removing and re-adding the widget from your home screen.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Is my writing private?</h3>
+    <p>Yes. Your reflections are stored only on your device — there's no account, no server, and no upload of what you write. See our <a href="./stoicz-privacy.html">Privacy Policy</a> for full details.</p>
+  </div>
+
+  <div class="faq">
+    <h3>How do I turn off daily reminders?</h3>
+    <p>Go to <strong>Settings → Daily Reflection</strong> and toggle it off. You can also change the reminder time from the same screen.</p>
+  </div>
+
+  <div class="faq">
+    <h3>I found a bug or have a feature request.</h3>
+    <p>We'd love to hear it — email us at <a href="mailto:danishk7809@gmail.com">danishk7809@gmail.com</a> with as much detail as you can (what happened, what device/iOS version you're on).</p>
+  </div>
+
+  <footer>
+    Stoic Reflection · <a href="./stoicz-privacy.html">Privacy Policy</a>
+  </footer>
 </div>
-
-<div class="card">
-<h2>Frequently Asked Questions</h2>
-
-<p><strong>How do I restore my progress?</strong><br>
-Your progress is stored locally on your device unless cloud sync is added in future updates.</p>
-
-<p><strong>How do reminders work?</strong><br>
-Enable notifications in your device settings to receive daily reflection reminders.</p>
-
-<p><strong>Can I use the app offline?</strong><br>
-Yes, most core features work offline.</p>
-
-<p><strong>I found a bug.</strong><br>
-Please email us with your device model and issue details.</p>
-
-</div>
-
-<div class="card">
-<h2>Feature Requests</h2>
-<p>We love hearing ideas from users. If there’s a feature you'd like to see in Stoic Reflection, send us an email.</p>
-</div>
-
-<div class="card">
-<h2>Privacy Policy</h2>
-<p>Please refer to the app listing privacy policy for details on data usage and AdMob advertising.</p>
-</div>
-
-<p class="footer">
-© 2026 Danish Khan. All rights reserved.
-</p>
-
-</div>
-
 </body>
 </html>
