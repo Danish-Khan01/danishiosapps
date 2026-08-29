@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Cleaner: Swipe Photo — Support &amp; Privacy</title>
+    <style>
+        :root {
+            --canvas: #0C0C0E;
+            --surface: #141416;
+            --border: #242428;
+            --text-primary: #F0EEE9;
+            --text-secondary: #6B6B72;
+            --text-tertiary: #383840;
+            --accent: #5B7CFA;
+            --accent-dim: rgba(91, 124, 250, 0.18);
+            --accent-glow: rgba(91, 124, 250, 0.35);
+            --accent-green: #34D399;
+            --accent-amber: #FBBF24;
+            --accent-red: #F87171;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--canvas);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 48px 0 32px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            background: var(--accent-dim);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: var(--accent);
+            box-shadow: 0 0 24px var(--accent-glow);
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        header .tagline {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* Nav */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(12, 12, 14, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 10;
+        }
+
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.18s ease;
+        }
+
+        .nav a:hover, .nav a.active {
+            color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        /* Sections */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 24px 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 11px;
+        }
+
+        p, li {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 480px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.18s ease;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-dim);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-info {
+            min-width: 0;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .contact-value {
+            font-size: 14px;
+            color: var(--text-primary);
+            font-weight: 500;
+            word-break: break-word;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 16px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 18px;
+            color: var(--accent);
+            font-weight: 300;
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 20px 16px;
+        }
+
+        .faq-answer p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 32px 0 48px;
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 13px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            header h1 { font-size: 26px; }
+            .nav { gap: 4px; }
+            .nav a { padding: 6px 12px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="app-icon">✦</div>
+            <h1>Storage Cleaner</h1>
+            <p class="tagline">Swipe through your photos and clear space</p>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <a href="#faq">FAQ</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">Does swiping left delete a photo straight away?</div>
+                <div class="faq-answer">
+                    <p>No. Swiping left <strong>marks</strong> a photo for deletion and nothing else. Marked items collect in your bin, where you can review them and change your mind. They are only removed when you tap Delete and confirm.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I get a deleted photo back?</div>
+                <div class="faq-answer">
+                    <p>Yes. Deleted photos go to the Recently Deleted album in Apple's Photos app and stay there for 30 days. Open Photos → Albums → Recently Deleted to restore anything.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why does iOS ask me to confirm every deletion?</div>
+                <div class="faq-answer">
+                    <p>That confirmation is built into iOS and no app can skip it. It is a privacy protection, and we would not want to work around it. Storage Cleaner reduces it to a single prompt for the whole batch rather than one per photo, which is why marking and deleting are separate steps.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">I made a mistake — can I undo a swipe?</div>
+                <div class="faq-answer">
+                    <p>Tap the orange undo button between the bin and keep buttons. It steps back through your recent swipes. You can also open the bin at any point during a session and unmark anything individually.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Some photos could not be deleted. Why?</div>
+                <div class="faq-answer">
+                    <p>iOS does not let apps delete every photo. Items synced from a Mac, or shared albums you do not own, can only be removed in the Photos app itself. Storage Cleaner tells you when this happens rather than failing silently.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How does duplicate detection work?</div>
+                <div class="faq-answer">
+                    <p>Storage Cleaner compares small thumbnails on your device to find identical and near-identical photos. The matching is deliberately conservative — grouping two photos that are not really duplicates could lead you to delete something you wanted, which is far worse than missing a match. Every group shows a suggested photo to keep, and you can override it.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Does Storage Cleaner work without full photo access?</div>
+                <div class="faq-answer">
+                    <p>Yes. If you choose "Select Photos" rather than "Allow Access to All Photos", Storage Cleaner works normally across the photos you selected. You can add more at any time from the permission screen. Cleanup is more useful with full access, but limited access is fully supported.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What does Storage Cleaner Pro unlock?</div>
+                <div class="faq-answer">
+                    <p>Pro removes the daily deletion limit, adds "keep best, bin the rest" across every duplicate group at once, and removes ads. Everything else stays free: all filters, the duplicate scan, undo, and the pending bin. Pro lifts the volume limit rather than gating features.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I restore a purchase on a new device?</div>
+                <div class="faq-answer">
+                    <p>Yes. Open the paywall or Settings and tap "Restore Purchases", signed in with the same Apple ID used for the original purchase.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why am I not getting cleanup reminders?</div>
+                <div class="faq-answer">
+                    <p>Reminders only arrive when there is genuinely something worth cleaning — a meaningful number of new photos since your last cleanup. A reminder about a handful of photos would not be worth your attention, so Storage Cleaner stays quiet instead. You can adjust how often in Settings → Reminders.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="privacy">
+            <h2>Privacy Policy</h2>
+            <p class="effective-date">Effective Date: August 2026</p>
+
+            <p>This Privacy Policy explains how Danish Khan operates the Storage Cleaner iOS application ("App") and how information is handled when you use it.</p>
+
+            <h3>1. Your Photos Never Leave Your Device</h3>
+            <p>Storage Cleaner reads your photo library to show you your photos so you can review and delete the ones you no longer want. This happens entirely on your iPhone or iPad.</p>
+            <p>Your photos, videos, thumbnails, and any data derived from them are <strong>never uploaded, transmitted, or sent anywhere</strong>. There is no server, no account, and no cloud component. We cannot see your photos.</p>
+
+            <h3>2. Information We Collect</h3>
+            <p>Storage Cleaner does not require account creation and does not collect personal information such as your name, email address, phone number, or passwords through the App.</p>
+
+            <h3>3. Local Device Storage</h3>
+            <p>The following is stored locally on your device to make the App work:</p>
+            <ul>
+                <li>The date of your last completed cleanup, used for the "Since last cleanup" filter and the widget</li>
+                <li>Which photos you have chosen to keep, so a filter does not ask you twice</li>
+                <li>Items you have marked for deletion but not yet deleted</li>
+                <li>A cache of small numeric fingerprints used to find duplicates, which cannot be turned back into images</li>
+                <li>Your settings, reminder preferences, and purchase status</li>
+            </ul>
+            <p>This data is under your control and is removed when you delete the App.</p>
+
+            <h3>4. Photo Library Permission</h3>
+            <p>Storage Cleaner asks for photo library access the first time you open a cleanup flow, never on launch. Access is used only to display your photos for review and to delete the ones you choose. If you grant limited access, Storage Cleaner sees only the photos you selected. You can change or revoke this at any time in iOS Settings → Privacy &amp; Security → Photos.</p>
+
+            <h3>5. Third-Party Services</h3>
+            <p>The App uses the following third-party services, which may collect limited information automatically:</p>
+            <ul>
+                <li><strong>Google AdMob</strong> — used to display ads to users who have not purchased Pro. AdMob may collect device identifiers and usage data for advertising and measurement. See <a href="https://policies.google.com/technologies/partner-sites">Google's privacy policy</a>. Ads are disabled entirely for Pro users. No photo data is ever shared with AdMob or any advertiser.</li>
+                <li><strong>Apple StoreKit</strong> — used for in-app purchases and subscription management. Apple processes payment data in accordance with their policies.</li>
+                <li><strong>Apple Analytics</strong> — Apple may provide aggregated analytics, diagnostics, or crash information if you have opted in to sharing with developers.</li>
+            </ul>
+            <p>Please review the privacy policies of these providers for more details.</p>
+
+            <h3>6. How Information Is Used</h3>
+            <ul>
+                <li>Display your photos so you can review and delete them</li>
+                <li>Remember your progress, kept photos, and pending deletions</li>
+                <li>Find duplicate and near-duplicate photos on your device</li>
+                <li>Show cleanup reminders, if you have turned them on</li>
+                <li>Process purchases through Apple StoreKit</li>
+                <li>Serve advertising to users on the free tier</li>
+            </ul>
+
+            <h3>7. Data Sharing</h3>
+            <p>We do not sell your personal data. We do not share your photos or any information derived from them with anyone. Third-party providers may process limited technical data as described above.</p>
+
+            <h3>8. Children's Privacy</h3>
+            <p>The App is intended for a general audience and is not specifically directed to children under 13. If you believe a child has submitted personal data through a third-party service, please contact the relevant provider.</p>
+
+            <h3>9. Security</h3>
+            <p>Because your photos and app data never leave your device, they are protected by iOS's own security and your device passcode. No storage or transmission method is completely secure, but Storage Cleaner minimises risk by not transmitting anything in the first place.</p>
+
+            <h3>10. Your Choices</h3>
+            <ul>
+                <li>You may revoke or limit photo access at any time in iOS Settings → Privacy &amp; Security → Photos</li>
+                <li>You may turn cleanup reminders on or off in Settings → Reminders</li>
+                <li>You may delete all locally stored app data by removing the App from your device</li>
+                <li>You may limit ad tracking in iOS Settings → Privacy &amp; Security → Tracking</li>
+                <li>Purchasing Pro removes all advertising</li>
+            </ul>
+
+            <h3>11. Changes to This Policy</h3>
+            <p>This Privacy Policy may be updated from time to time. Changes become effective when the updated version is posted, and the effective date above will reflect when changes were made.</p>
+
+            <h3>12. Contact</h3>
+            <p>For questions about this Privacy Policy, please contact:</p>
+            <p><strong>Danish Khan</strong><br>Email: <a href="mailto:danishk7809@gmail.com">danishk7809@gmail.com</a></p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Need help or have feedback? Reach out — we read every message.</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">danishk7809@gmail.com</div>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">👤</div>
+                    <div>
+                        <div class="contact-label">Developer</div>
+                        <div class="contact-value">Danish Khan</div>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top:24px;"><a href="storage-cleaner-terms.html">Terms of Use →</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Danish Khan. All rights reserved.</p>
+            <p>Storage Cleaner keeps everything on your device.</p>
+        </div>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
