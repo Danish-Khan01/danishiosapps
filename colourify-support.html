@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -264,6 +265,7 @@
             .nav a { padding: 6px 12px; font-size: 12px; }
         }
     </style>
+
 <base target="_blank">
 </head>
 <body>
@@ -272,103 +274,128 @@
         <div class="container">
             <div class="app-icon">🎨</div>
             <h1>Colourify</h1>
-            <p class="tagline">Tap to fill, colour & relax</p>
+            <p class="tagline">A calm, happy colouring book for children</p>
         </div>
     </header>
 
     <nav class="nav">
-        <a href="#faq" class="active">FAQ</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#contact">Contact</a>
+        <a href="#faq" class="active" target="_self">FAQ</a>
+        <a href="#parents" target="_self">Parents</a>
+        <a href="#privacy" target="_self">Privacy</a>
+        <a href="#contact" target="_self">Contact</a>
     </nav>
 
     <main class="container">
 
-        <!-- FAQ -->
         <section id="faq">
             <h2>Frequently Asked Questions</h2>
-
             <div class="faq-item active">
                 <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                    How do I colour a template?
+                    How do I colour a picture?
                 </div>
                 <div class="faq-answer">
-                    <p>Pick a colour from the wheel at the bottom of the screen, then tap any region of the artwork to fill it. Each fill animates in instantly.</p>
+                    <p>Pictures open in colour by numbers: pick a number at the bottom of the screen and tap every area with that number. The tiniest parts colour themselves when their colour is finished. To colour freely instead, tap the tool button in the top corner and pick Fill or a brush, then choose any colour from the palette.</p>
                 </div>
             </div>
-
             <div class="faq-item">
                 <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                    Can I undo a fill?
+                    Can I undo?
                 </div>
                 <div class="faq-answer">
-                    <p>Yes. Use the undo and redo arrows in the toolbar above the palette to step backward or forward through your recent fills.</p>
+                    <p>Yes. Use the undo and redo arrows in the bar under the picture.</p>
                 </div>
             </div>
-
             <div class="faq-item">
                 <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
                     Does my progress save automatically?
                 </div>
                 <div class="faq-answer">
-                    <p>Yes. Colourify saves your progress on your device after every fill, so you can close the app and pick up exactly where you left off.</p>
+                    <p>Yes. Colourify saves on your device as you colour, so you can close the app and carry on later. Progress is stored only on the device, so deleting the app deletes it too.</p>
                 </div>
             </div>
-
             <div class="faq-item">
                 <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                    Do I have to fill every region?
+                    How do I finish a picture?
                 </div>
                 <div class="faq-answer">
-                    <p>No. You're free to leave any region white or unfilled if that's the look you want — tap the checkmark in the toolbar when you consider a piece finished.</p>
+                    <p>Colour-by-number pictures finish by themselves when the last number is done. When colouring freely, tap the tick in the bar to mark the picture finished; it then appears in My Art.</p>
                 </div>
             </div>
-
             <div class="faq-item">
                 <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                    How do I save or share my finished artwork?
+                    Why does it ask a grown-up question?
                 </div>
                 <div class="faq-answer">
-                    <p>Tap the save icon in the toolbar. You'll be asked for permission to add the image to your Photos library, after which you can also share it directly from the share sheet.</p>
+                    <p>Colourify is made for children. Buying, restoring a purchase, saving or sharing, opening links and turning on reminders all ask a simple question that a grown-up can answer, so children can't do these by accident.</p>
                 </div>
             </div>
-
             <div class="faq-item">
                 <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                    What are colouring packs?
+                    How do I save or share my picture?
                 </div>
                 <div class="faq-answer">
-                    <p>Packs are bundles of additional colouring templates. Some packs are free, and others can be unlocked with a one-time in-app purchase from the More Packs tab.</p>
+                    <p>Tap share on a finished picture or in My Art. After the grown-up question, the iOS share sheet lets you save to Photos or share. The first time you save, iOS asks to let Colourify add photos.</p>
                 </div>
             </div>
-
             <div class="faq-item">
                 <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                    I reinstalled the app — can I get my purchased packs back?
+                    What is free, and what does the purchase unlock?
                 </div>
                 <div class="faq-answer">
-                    <p>Yes. Purchased packs are tied to your Apple ID. Look for a "Restore Purchases" option in the More Packs tab and sign in with the same Apple ID used for the original purchase.</p>
+                    <p>Every category has free pictures to colour, and the basic colours, Fill and marker are free. One optional, one-time purchase (Unlock Everything) unlocks the Deluxe Pack and future picture packs, every brush, fill style and background sound, colouring books, and unlimited drawings of your own. There are no ads and no subscriptions.</p>
                 </div>
             </div>
-
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    I reinstalled the app or have a new device. How do I get my purchase back?
+                </div>
+                <div class="faq-answer">
+                    <p>Open Settings in the app and tap Restore Purchase (after the grown-up question), using the same Apple ID that made the purchase. Colouring progress is stored on the device, so it is only kept if you restore the device from a backup.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Can I colour my own drawings?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. Tap the + tile in the gallery to import a photo of a drawing, and Colourify turns it into a colouring page. Four drawings are free; the purchase makes it unlimited. Photos stay on your device.</p>
+                </div>
+            </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
                     Does Colourify work offline?
                 </div>
                 <div class="faq-answer">
-                    <p>Yes, Colourify works fully offline. No account or internet connection is required to colour, save progress, or view your artwork.</p>
+                    <p>Yes, fully. No account or internet connection is needed.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    How do I turn reminders on or off?
+                </div>
+                <div class="faq-answer">
+                    <p>In the app's Settings, under Notifications. Turning reminders on asks the grown-up question first. You can also manage them in iOS Settings → Colourify.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Privacy summary + link -->
-        <section id="privacy">
-            <h2>Privacy</h2>
-            <p>Colourify doesn't require an account and doesn't collect personal information. Your colouring progress is stored locally on your device. Saving artwork uses Photos "Add Only" access, used only to save the image you create.</p>
-            <p>For full details, read our <a href="privacy.html" style="color: var(--accent);">Privacy Policy</a>.</p>
+        <section id="parents">
+            <h2>For Parents</h2>
+            <ul>
+                <li>No ads, no tracking, no accounts and no data collection.</li>
+                <li>Buying, sharing, links and reminders are behind a grown-up question.</li>
+                <li>One optional purchase, paid once. No subscriptions.</li>
+                <li>No streaks or pressure to come back, and no sudden loud sounds.</li>
+                <li>Everything your child makes stays on your device.</li>
+            </ul>
         </section>
 
-        <!-- Contact -->
+        <section id="privacy">
+            <h2>Privacy</h2>
+            <p>Colourify collects no personal information. There are no accounts, ads or analytics, and nothing your child types, draws or photographs leaves the device. The optional first name is used only on the device.</p>
+            <p>For full details, read our <a href="https://danish-khan01.github.io/danishiosapps/colourify-privacy.html" style="color: var(--accent);">Privacy Policy</a> and <a href="https://danish-khan01.github.io/danishiosapps/colourify-terms-of-use.html" style="color: var(--accent);">Terms of Use</a>.</p>
+        </section>
+
         <section id="contact">
             <h2>Contact</h2>
             <p style="margin-bottom: 20px;">Need help or have feedback? Reach out — we read every message.</p>
@@ -397,7 +424,6 @@
     <footer>
         <div class="container">
             <p>© 2026 Danish Khan. All rights reserved.</p>
-            <p style="margin-top: 6px;">Colourify is built for calm, satisfying colouring — anytime, anywhere.</p>
         </div>
     </footer>
 
@@ -408,16 +434,10 @@
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 120) {
-                    current = section.getAttribute('id');
-                }
+                if (scrollY >= section.offsetTop - 120) current = section.getAttribute('id');
             });
             navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
+                link.classList.toggle('active', link.getAttribute('href') === '#' + current);
             });
         });
     </script>
