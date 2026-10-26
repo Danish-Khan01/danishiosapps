@@ -309,7 +309,7 @@
         }
 
         .faq-item.active .faq-answer {
-            max-height: 500px;
+            max-height: 1400px;
             padding: 0 20px 16px;
         }
 
@@ -356,9 +356,9 @@
     </header>
 
     <nav class="nav">
-        <a href="#faq" class="active">FAQ</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#contact">Contact</a>
+        <a href="#faq" target="_self" class="active">FAQ</a>
+        <a href="#privacy" target="_self">Privacy</a>
+        <a href="#contact" target="_self">Contact</a>
     </nav>
 
     <main class="container">
@@ -372,12 +372,15 @@
                 <div class="format-chip">JPEG</div>
                 <div class="format-chip">PNG</div>
                 <div class="format-chip">HEIC</div>
+                <div class="format-chip">AVIF</div>
                 <div class="format-chip">WebP</div>
                 <div class="format-chip">TIFF</div>
                 <div class="format-chip">BMP</div>
                 <div class="format-chip">GIF</div>
                 <div class="format-chip">ICO</div>
+                <div class="format-chip">PDF</div>
             </div>
+            <p style="margin: 12px 0 24px;">Supported RAW photos can also be imported.</p>
 
             <div class="faq-item active">
                 <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
@@ -402,7 +405,7 @@
                     Why did my file size increase after converting to PNG or TIFF?
                 </div>
                 <div class="faq-answer">
-                    <p>JPEG and HEIC compress photos in a lossy way, discarding detail to keep file sizes small. PNG and TIFF are lossless, so converting from a lossy format to one of these restores all that detail — which is why the file can end up noticeably larger. This is expected behavior, not a bug.</p>
+                    <p>PNG and TIFF can produce larger files than JPEG or HEIC because they use different compression. Converting a previously compressed photo to a lossless format does not recover detail already discarded by the source format. Use an adjustable-quality format or resizing when a smaller file is the priority.</p>
                 </div>
             </div>
 
@@ -429,16 +432,44 @@
                     Does the app upload my photos anywhere?
                 </div>
                 <div class="faq-answer">
-                    <p>No. Every conversion happens entirely on your device. Your photos are never uploaded to a server, and no account or sign-up is required to use the app.</p>
+                    <p>No. Every conversion happens entirely on your device. The App does not upload your selected photos for conversion, and no account or sign-up is required. Sharing or saving through a cloud provider uses that service.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                    What does Remove Ads include?
+                    What can I use for free?
                 </div>
                 <div class="faq-answer">
-                    <p>Remove Ads is a one-time purchase that permanently turns off the interstitial ads shown after converting or saving. It's not a subscription — pay once, and ads are gone for good. All conversion features are fully available for free either way.</p>
+                    <p>The free version includes five images per local day, all supported output formats, resizing, file-size targets, and original-quality PDF export. Batch conversion is available within your free allowance. Optional rewarded ads can unlock additional images. Pro unlocks unlimited images, removes ads, and adds PDF compression and ZIP export.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    How do I make a smaller PDF?
+                </div>
+                <div class="faq-answer">
+                    <p>Select PDF, then choose Balanced or Small file compression with Pro in Single or Batch. Original quality remains available free. Compression preserves the selected page layout and image proportions; results depend on your source images and settings.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Does “Aim for under…” guarantee an exact file size?
+                </div>
+                <div class="faq-answer">
+                    <p>No. Choose JPEG, HEIC, WebP, or AVIF and a target size; the app aims for that limit using adjustable compression. Some targets require smaller image dimensions. In Batch, the target applies to each image. Formats without adjustable compression offer resizing instead.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    What does Lifetime Pro include?
+                </div>
+                <div class="faq-answer">
+                    <p>Lifetime Pro is a one-time purchase that removes ads, unlocks unlimited images, enables Balanced and Small file PDF compression in Single and Batch, and enables ZIP export. Lifetime access includes all future app updates. There is no subscription.</p>
+                    <p>The price is shown in your App Store currency before you buy and may vary by country or region. Existing lifetime purchasers keep their access.</p>
                 </div>
             </div>
 
@@ -447,7 +478,7 @@
                     Can I restore my purchase on a new device?
                 </div>
                 <div class="faq-answer">
-                    <p>Yes. In Settings, tap "Restore Purchases" and sign in with the same Apple ID used for the original purchase.</p>
+                    <p>Yes. Tap "Restore Purchases" in Settings or on the paywall, using the same Apple Account that made the original purchase.</p>
                 </div>
             </div>
         </section>
@@ -455,23 +486,23 @@
         <!-- Privacy Policy -->
         <section id="privacy">
             <h2>Privacy Policy</h2>
-            <p style="color: var(--text-tertiary); font-size: 13px; margin-bottom: 24px;">Effective Date: July 31, 2026</p>
+            <p style="color: var(--text-tertiary); font-size: 13px; margin-bottom: 24px;">Effective Date: October 26, 2026</p>
 
-            <p>This Privacy Policy explains how Danish Khan operates the Image Converter: Any Format iOS application ("App") and how information may be handled when you use it.</p>
+            <p>This Privacy Policy explains how Danish Khan operates the Image Converter: Any Format application for iPhone, iPad, and Mac ("App") and how information may be handled when you use it.</p>
 
             <h3>1. Information We Collect</h3>
             <p>Image Converter: Any Format does not require account creation and does not directly collect personal information such as your name, email address, phone number, or passwords through the App.</p>
             <p>The App accesses photos you explicitly choose from your photo library in order to convert them. Conversion happens entirely on your device.</p>
 
             <h3>2. Local Device Storage</h3>
-            <p>Your recent conversions, app settings, and preferences are saved locally on your iPhone or iPad to provide core app functionality, such as letting you re-save or re-share a recently converted file.</p>
-            <p>This data is under your device's control and may be removed by deleting the App.</p>
+            <p>Your recent conversions, app settings, and preferences are saved locally on your device to provide core app functionality, such as letting you re-save or re-share a recently converted file.</p>
+            <p>This data is under your control. You can delete entries from Recent in the App and manage locally stored app data through your device's storage settings.</p>
 
             <h3>3. Third-Party Services</h3>
             <p>The App uses third-party services that may collect limited information automatically:</p>
             <ul>
-                <li><strong>Google AdMob</strong> — used to display interstitial ads. AdMob may collect device identifiers and usage data to serve and measure ads, in accordance with Google's privacy policy.</li>
-                <li><strong>Apple StoreKit</strong> — used to process the "Remove Ads" in-app purchase. Apple processes payment data in accordance with their policies.</li>
+                <li><strong>Google AdMob</strong> — used to display interstitial, app-open, and optional rewarded ads in the free iPhone/iPad app. To deliver and measure ads, the SDK may process IP addresses (which can indicate approximate location), device identifiers, advertising and interaction data, and crash and performance information, according to applicable consent choices and <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google's privacy policy</a>. Lifetime Pro removes ads. The Mac Catalyst version does not display ads.</li>
+                <li><strong>Apple StoreKit</strong> — used to process the Lifetime Pro non-consumable purchase and restore existing purchases. Apple handles payment information according to <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer">its privacy policy</a>. The App does not receive your full payment-card details.</li>
                 <li><strong>Apple Analytics</strong> — Apple may provide aggregated analytics, diagnostics, or crash information to help improve app performance.</li>
             </ul>
             <p>Please review the privacy policies of these providers for more details.</p>
@@ -480,12 +511,12 @@
             <ul>
                 <li>Convert images between formats, entirely on your device</li>
                 <li>Save your recent conversions locally for quick access</li>
-                <li>Display ads (unless Remove Ads has been purchased) and process that purchase through Apple StoreKit</li>
+                <li>Display ads in the free iPhone/iPad app, apply relevant consent choices, and process Lifetime Pro purchases through Apple StoreKit</li>
                 <li>Improve stability, reliability, and performance</li>
             </ul>
 
             <h3>5. Data Sharing</h3>
-            <p>We do not sell your personal data. Your photos are never uploaded to our servers — all conversion happens locally on your device. Third-party providers listed above may process limited technical data as described.</p>
+            <p>The developer does not sell your personal data. The App does not upload selected images to the developer for conversion; conversion takes place on your device. Third-party providers listed above may process technical data as described. If you choose to share an image or save it through a cloud storage provider, that service handles the file according to its own policies.</p>
 
             <h3>6. Children's Privacy</h3>
             <p>The App is intended for a general audience and is not specifically directed to children under 13. If you believe a child has submitted personal data through a third-party service, please contact the relevant provider.</p>
@@ -495,8 +526,10 @@
 
             <h3>8. Your Choices</h3>
             <ul>
-                <li>You may delete locally stored app data, including recent conversions, by removing the App from your device.</li>
-                <li>You may manage photo library access and other permissions in your iOS Settings.</li>
+                <li>You may delete entries from Recent in the App and manage locally stored app data through your device's storage settings.</li>
+                <li>You may manage photo library access and other permissions in your device Settings.</li>
+                <li>Where required, use Privacy Choices in the App's Settings to revisit advertising consent choices. Availability depends on your region and applicable requirements.</li>
+                <li>Lifetime Pro removes ads. Apple manages purchases and restores through your Apple Account.</li>
             </ul>
 
             <h3>9. Changes to This Policy</h3>
